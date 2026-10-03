@@ -1,0 +1,812 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dirección de Servicios Estudiantiles — Bitácora de clases</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+            --portfolio-bg: #f8f9fa;
+            --portfolio-text: #4e3b34;
+            --portfolio-muted: #9b8a81;
+            --portfolio-line: #d8c9c0;
+
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+            --bitacora-bg: #f8f9fa;
+            --bitacora-text: #333333;
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* =====================================================
+           CUERPO
+        ===================================================== */
+
+        body {
+            background-color: var(--bitacora-bg);
+            color: var(--bitacora-text);
+            font-family: 'Roboto', sans-serif;
+            padding: 0 20px 40px 20px;
+        }
+
+
+        .page-wrapper {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           MENÚ SUPERIOR
+        ===================================================== */
+
+        .portfolio-header {
+            width: 100%;
+            padding: 28px 5vw;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background-color: #faf9f7;
+
+            position: relative;
+            z-index: 100;
+
+            font-family: 'DM Sans', sans-serif;
+        }
+
+
+        /* NOMBRE */
+
+        .portfolio-logo {
+            color: #24211f;
+            text-decoration: none;
+
+            font-family: 'DM Sans', sans-serif;
+
+            font-size: 13px;
+            font-weight: 400;
+
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+        }
+
+
+        /* MENÚ */
+
+        .portfolio-nav ul {
+            display: flex;
+            align-items: center;
+
+            gap: 30px;
+
+            list-style: none;
+        }
+
+
+        .portfolio-nav ul li a {
+            position: relative;
+
+            color: #24211f;
+            text-decoration: none;
+
+            font-family: 'DM Sans', sans-serif;
+
+            font-size: 12px;
+            font-weight: 300;
+
+            letter-spacing: 0.5px;
+
+            transition: opacity 0.3s ease;
+        }
+
+
+        .portfolio-nav ul li a:hover {
+            opacity: 0.5;
+        }
+
+
+        /* ELEMENTO ACTIVO */
+
+        .portfolio-nav ul li a.active::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+
+            bottom: -5px;
+
+            height: 1px;
+
+            background: #24211f;
+        }
+
+
+        /* =====================================================
+           CONTENEDOR PRINCIPAL
+        ===================================================== */
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+
+            margin: 40px auto 0 auto;
+        }
+
+
+        /* =====================================================
+           SECCIÓN SUPERIOR
+        ===================================================== */
+
+        .top-section {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 40px;
+
+            margin-bottom: 50px;
+        }
+
+
+        .welcome-side {
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .welcome-side h1 {
+            color: #001c43;
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+            line-height: 1.2;
+
+            margin-bottom: 25px;
+        }
+
+
+        .welcome-side p {
+            color: #555555;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+
+        .welcome-side p strong {
+            color: #001c43;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           BOTÓN NARANJA
+        ===================================================== */
+
+        .btn-orange {
+            background-color: #f07f00;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            padding: 12px 24px;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            border-radius: 4px;
+
+            width: fit-content;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            transition: background-color 0.2s;
+        }
+
+
+        .btn-orange:hover {
+            background-color: #d67100;
+        }
+
+
+        /* =====================================================
+           GRID DE TARJETAS
+        ===================================================== */
+
+        .cards-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+
+        .small-card {
+            background-color: #ffffff;
+
+            padding: 25px;
+
+            border-radius: 4px;
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.04);
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .card-tag {
+            font-size: 11px;
+
+            font-weight: 500;
+
+            margin-bottom: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+        }
+
+
+        .card-tag::before {
+            content: "";
+
+            display: inline-block;
+
+            width: 8px;
+
+            height: 8px;
+        }
+
+
+        /* =====================================================
+           COLORES DE CATEGORÍAS
+        ===================================================== */
+
+        .tag-deportes {
+            color: #004b93;
+        }
+
+
+        .tag-deportes::before {
+            background-color: #004b93;
+        }
+
+
+        .tag-salud {
+            color: #003366;
+        }
+
+
+        .tag-salud::before {
+            background-color: #003366;
+        }
+
+
+        .tag-bienestar {
+            color: #9c27b0;
+        }
+
+
+        .tag-bienestar::before {
+            background-color: #9c27b0;
+        }
+
+
+        .tag-extra {
+            color: #1565c0;
+        }
+
+
+        .tag-extra::before {
+            background-color: #1565c0;
+        }
+
+
+        .small-card h3 {
+            color: #111111;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            line-height: 1.4;
+        }
+
+
+        /* =====================================================
+           BANNER PRINCIPAL
+        ===================================================== */
+
+        .banner-talleres {
+            background-color: #0f2c59;
+
+            border-radius: 4px;
+
+            overflow: hidden;
+
+            display: grid;
+
+            grid-template-columns: 45% 55%;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+
+        .banner-content {
+            padding: 45px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .banner-tag {
+            color: #8bb2f0;
+
+            font-size: 12px;
+
+            font-weight: 500;
+
+            margin-bottom: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+        }
+
+
+        .banner-tag::before {
+            content: "";
+
+            display: inline-block;
+
+            width: 8px;
+
+            height: 8px;
+
+            background-color: #8bb2f0;
+        }
+
+
+        .banner-content h2 {
+            color: #ffffff;
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+            margin-bottom: 25px;
+        }
+
+
+        .banner-content p {
+            color: #cedee7;
+
+            font-size: 13.5px;
+
+            line-height: 1.6;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =====================================================
+           BOTÓN OUTLINE
+        ===================================================== */
+
+        .btn-outline {
+            border: 1px solid #f07f00;
+
+            background-color: rgba(240, 127, 0, 0.1);
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            padding: 12px 24px;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            border-radius: 4px;
+
+            width: fit-content;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            transition: background-color 0.2s;
+        }
+
+
+        .btn-outline:hover {
+            background-color: rgba(240, 127, 0, 0.25);
+        }
+
+
+        /* =====================================================
+           IMAGEN
+        ===================================================== */
+
+        .banner-image {
+            width: 100%;
+
+            height: 100%;
+
+            min-height: 350px;
+
+            background-image: url('imagen10.png');
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 968px) {
+
+            .portfolio-header {
+                flex-direction: column;
+
+                gap: 1.5rem;
+
+                padding: 2rem 5%;
+            }
+
+
+            .portfolio-nav ul {
+                gap: 1.3rem;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+
+            .top-section {
+                grid-template-columns: 1fr;
+            }
+
+
+            .banner-talleres {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            body {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+
+            .portfolio-header {
+                padding: 1.8rem 3%;
+            }
+
+
+            .portfolio-nav ul {
+                gap: 0.9rem;
+            }
+
+
+            .portfolio-nav ul li a {
+                font-size: 0.75rem;
+            }
+
+
+            .container {
+                margin-top: 30px;
+            }
+
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .welcome-side h1 {
+                font-size: 28px;
+            }
+
+
+            .banner-content {
+                padding: 30px;
+            }
+
+
+            .banner-content h2 {
+                font-size: 27px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="page-wrapper">
+
+    <!-- =================================================
+         ENCABEZADO / MENÚ
+    ================================================= -->
+
+    <header class="portfolio-header">
+
+        <!-- VOLVER AL INICIO -->
+
+        <a href="index.html" class="portfolio-logo">
+            María José Ardiles
+        </a>
+
+
+        <nav class="portfolio-nav">
+
+            <ul>
+
+                <!-- INICIO -->
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+
+                <!-- ENCARGO 3 ACTIVO -->
+
+                <li>
+                    <a href="./encargo%203.html" class="active">
+                        Encargo 3
+                    </a>
+                </li>
+
+
+                <!-- ENCARGO 4 -->
+
+                <li>
+                    <a href="encargo 4.html">
+                        Encargo 4
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =================================================
+         CONTENIDO PRINCIPAL
+    ================================================= -->
+
+    <main class="container">
+
+
+        <!-- BLOQUE SUPERIOR -->
+
+        <section class="top-section">
+
+
+            <!-- TEXTO IZQUIERDO -->
+
+            <div class="welcome-side">
+
+                <h1>
+                    Dirección de Servicios<br>
+                    Estudiantes
+                </h1>
+
+
+                <p>
+                    El trabajo colaborativo, sistemático y permanente en
+                    <strong>investigación y creación</strong>, realizado en
+                    la Universidad de Concepción, es una forma válida de
+                    alcanzar altos niveles de calidad y pertinencia.
+                </p>
+
+
+                <a href="#" class="btn-orange">
+                    Conocer más ↗
+                </a>
+
+            </div>
+
+
+            <!-- PANEL DE 4 TARJETAS -->
+
+            <div class="cards-grid">
+
+
+                <div class="small-card">
+
+                    <span class="card-tag tag-deportes">
+                        Deportes
+                    </span>
+
+                    <h3>
+                        Actividades masivas y recreativas
+                    </h3>
+
+                </div>
+
+
+                <div class="small-card">
+
+                    <span class="card-tag tag-salud">
+                        Salud
+                    </span>
+
+                    <h3>
+                        Recepción de certificados médicos
+                    </h3>
+
+                </div>
+
+
+                <div class="small-card">
+
+                    <span class="card-tag tag-bienestar">
+                        Bienestar Estudiantil
+                    </span>
+
+                    <h3>
+                        Tarjeta Nacional Estudiantil
+                    </h3>
+
+                </div>
+
+
+                <div class="small-card">
+
+                    <span class="card-tag tag-extra">
+                        Actividades extraprogramáticas
+                    </span>
+
+                    <h3>
+                        Cursos Artísticos y Culturales de libre participación
+                    </h3>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BANNER TALLERES DEPORTIVOS
+        ================================================= -->
+
+        <section class="banner-talleres">
+
+
+            <!-- INFORMACIÓN -->
+
+            <div class="banner-content">
+
+                <span class="banner-tag">
+                    Unidad de Deportes DISE
+                </span>
+
+
+                <h2>
+                    Talleres deportivos
+                </h2>
+
+
+                <p>
+                    Esta Unidad es la encargada de generar instancias
+                    deportivas, recreativas y de actividades masivas de
+                    integración para la formación integral y de excelencia.
+                    Su objetivo principal es entregar a los y las
+                    estudiantes las herramientas necesarias para su
+                    desarrollo integral al interior de la Universidad y
+                    ser la fuente motivadora y precursora de cambios
+                    positivos tanto en el aspecto físico como en el mental,
+                    a través de difusión o promoción de estilos de vida
+                    saludables.
+                </p>
+
+
+                <a href="#" class="btn-outline">
+                    Visita nuestros talleres ↗
+                </a>
+
+            </div>
+
+
+            <!-- IMAGEN -->
+
+            <div class="banner-image"></div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+</body>
+</html>
+```

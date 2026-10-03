@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tarea 4 — María José Ardiles</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg: #faf9f7;
+    --text: #302b29;
+    --muted: #8d8580;
+    --line: #e6e1dd;
+    --soft: #f1eeeb;
+    --pink: #cdbdb6;
+    --lilac: #b9b0c4;
+
+    --serif: 'Playfair Display', serif;
+    --sans: 'DM Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* HEADER */
+
+.portfolio-header {
+    width: 100%;
+    padding: 28px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #faf9f7;
+    position: relative;
+    z-index: 100;
+    border-bottom: none;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.portfolio-logo {
+    color: #24211f;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+}
+
+.portfolio-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.portfolio-nav ul li a {
+    position: relative;
+    color: #24211f;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-nav ul li a:hover {
+    opacity: 0.5;
+}
+
+.portfolio-nav ul li a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 1px;
+    background: #24211f;
+}
+
+/* GENERAL */
+
+.section {
+    width: 90%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 95px 0;
+    border-top: 1px solid var(--line);
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+h1,
+h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    max-width: 700px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 14px;
+    color: #57504c;
+}
+
+.small {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* HERO */
+
+.hero {
+    width: 90%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 110px 0 130px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 80px;
+    align-items: end;
+}
+
+.hero-description {
+    max-width: 340px;
+    padding-bottom: 5px;
+}
+
+.hero-description p {
+    margin-bottom: 18px;
+}
+
+.hero-number {
+    font-family: var(--serif);
+    font-size: 82px;
+    line-height: 1;
+    color: var(--line);
+    margin-bottom: 15px;
+}
+
+/* INTRO */
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.intro-text {
+    max-width: 650px;
+}
+
+.intro-text p + p {
+    margin-top: 18px;
+}
+
+.question {
+    padding-left: 30px;
+    border-left: 1px solid var(--pink);
+}
+
+.question p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+/* SECTION HEADER */
+
+.section-header {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 40px;
+    margin-bottom: 55px;
+}
+
+.section-number {
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 8px;
+}
+
+/* TEXT GRID */
+
+.text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.text-column h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.text-column p + p {
+    margin-top: 15px;
+}
+
+/* JOURNEY */
+
+.journey {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 55px;
+    margin-top: 60px;
+}
+
+.journey-divider {
+    background: var(--line);
+}
+
+.journey-platform {
+    margin-bottom: 25px;
+}
+
+.journey-platform h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.steps {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.step {
+    padding: 10px 15px;
+    border: 1px solid var(--line);
+    font-size: 11px;
+    color: #5e5753;
+}
+
+.arrow {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* NAVIGATION MAP */
+
+.nav-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 60px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-column {
+    padding: 35px 40px;
+}
+
+.nav-column + .nav-column {
+    border-left: 1px solid var(--line);
+}
+
+.nav-column h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+}
+
+.nav-item:last-child {
+    border-bottom: none;
+}
+
+.nav-item span:last-child {
+    color: var(--muted);
+}
+
+/* DEVICES */
+
+.device-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin-top: 60px;
+}
+
+.device {
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+}
+
+.device-number {
+    font-family: var(--serif);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.device h3 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.device p {
+    font-size: 13px;
+}
+
+/* COMPARISON */
+
+.comparison {
+    margin-top: 60px;
+    border-top: 1px solid var(--line);
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+}
+
+.comparison-row > div {
+    padding: 17px 20px;
+    font-size: 12px;
+}
+
+.comparison-row > div + div {
+    border-left: 1px solid var(--line);
+}
+
+.comparison-row:first-child {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.comparison-row:not(:first-child) > div:first-child {
+    color: var(--text);
+    font-weight: 400;
+}
+
+/* GRAPHIC */
+
+.graphic {
+    margin-top: 80px;
+}
+
+.graphic-intro {
+    max-width: 600px;
+    margin-bottom: 35px;
+}
+
+.graphic-row {
+    display: grid;
+    grid-template-columns: 190px 1fr 1fr;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    min-height: 70px;
+}
+
+.graphic-row:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.graphic-label {
+    font-size: 12px;
+}
+
+.bar-area {
+    padding: 0 25px;
+}
+
+.bar {
+    height: 5px;
+    background: var(--soft);
+    position: relative;
+}
+
+.bar-fill {
+    height: 100%;
+}
+
+.bar-fill.pinterest {
+    width: 82%;
+    background: var(--pink);
+}
+
+.bar-fill.instagram {
+    width: 82%;
+    background: var(--lilac);
+}
+
+.bar-fill.pinterest-low {
+    width: 62%;
+    background: var(--pink);
+}
+
+.bar-fill.instagram-high {
+    width: 88%;
+    background: var(--lilac);
+}
+
+.bar-name {
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 7px;
+}
+
+/* STRENGTHS */
+
+.strength-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    margin-top: 70px;
+}
+
+.strength {
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+}
+
+.strength h3 {
+    font-family: var(--serif);
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.strength ul {
+    list-style: none;
+}
+
+.strength li {
+    font-size: 13px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+/* CONCLUSION */
+
+.conclusion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.conclusion-main {
+    max-width: 650px;
+}
+
+.conclusion-main h2 {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.conclusion-main p + p {
+    margin-top: 18px;
+}
+
+.conclusion-side {
+    padding-top: 10px;
+}
+
+.conclusion-side p {
+    font-family: var(--serif);
+    font-size: 21px;
+    line-height: 1.5;
+}
+
+/* FINAL SYNTHESIS */
+
+.synthesis-section {
+    width: 90%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 110px 0;
+    border-top: 1px solid var(--line);
+}
+
+.synthesis-title {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.synthesis-title h2 {
+    font-size: 34px;
+}
+
+.synthesis-title p {
+    max-width: 550px;
+    margin: 15px auto 0;
+}
+
+.final-map {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    align-items: center;
+}
+
+.final-platform {
+    text-align: center;
+}
+
+.final-platform h3 {
+    font-family: var(--serif);
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.final-steps {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.final-step {
+    padding: 9px 13px;
+    border: 1px solid var(--line);
+    font-size: 10px;
+}
+
+.final-vs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--muted);
+}
+
+.final-text {
+    max-width: 600px;
+    margin: 70px auto 0;
+    text-align: center;
+}
+
+.final-text p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+/* FOOTER */
+
+.footer {
+    width: 90%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 35px 0 45px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--muted);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .portfolio-header {
+        padding: 23px 5vw;
+    }
+
+    .portfolio-nav ul {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 80px 0 90px;
+    }
+
+    .hero-grid,
+    .intro-grid,
+    .text-grid,
+    .conclusion-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-header {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+
+    .journey {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .journey-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .nav-map,
+    .device-grid,
+    .strength-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-column + .nav-column {
+        border-left: none;
+        border-top: 1px solid var(--line);
+    }
+
+    .device-grid {
+        gap: 35px;
+    }
+
+    .comparison {
+        overflow-x: auto;
+    }
+
+    .comparison-row {
+        min-width: 650px;
+    }
+
+    .graphic-row {
+        grid-template-columns: 110px 1fr 1fr;
+    }
+
+    .bar-area {
+        padding: 0 10px;
+    }
+
+    .final-map {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .final-vs {
+        height: 30px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="portfolio-header">
+    <a href="index.html" class="portfolio-logo">
+        María José Ardiles
+    </a>
+
+    <nav class="portfolio-nav">
+        <ul>
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="./encargo%203.html">
+                    Encargo 3
+                </a>
+            </li>
+
+            <li>
+                <a href="encargo 4.html" class="active">
+                    Encargo 4
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-grid">
+
+        <div>
+            <div class="eyebrow">Tarea 4 · Análisis comparativo</div>
+
+            <h1>
+                Pinterest vs.<br>
+                Instagram
+            </h1>
+        </div>
+
+        <div class="hero-description">
+
+            <div class="hero-number">04</div>
+
+            <p>
+                Comparación de cómo funcionan Pinterest e Instagram
+                en computador, tablet y celular.
+            </p>
+
+            <p class="small">
+                La idea es ver qué hace diferente a cada plataforma
+                y cómo cambia la forma de usarlas.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="section">
+
+    <div class="section-header">
+        <div class="section-number">01</div>
+
+        <div>
+            <div class="eyebrow">Introducción</div>
+
+            <h2>
+                Dos plataformas parecidas,
+                pero no iguales
+            </h2>
+        </div>
+    </div>
+
+    <div class="intro-grid">
+
+        <div class="intro-text">
+
+            <p>
+                Pinterest e Instagram son plataformas donde podemos
+                encontrar imágenes, ideas y contenido visual. A primera
+                vista pueden parecer bastante parecidas, pero la forma
+                en que se usan es diferente.
+            </p>
+
+            <p>
+                Pinterest está más relacionado con buscar ideas,
+                descubrir cosas nuevas y guardar contenido para verlo
+                después. Instagram, en cambio, está más relacionado con
+                seguir personas, ver publicaciones y conversar o
+                reaccionar al contenido.
+            </p>
+
+            <p>
+                En este análisis comparo las dos plataformas y también
+                cómo funcionan cuando las usamos desde distintos
+                dispositivos.
+            </p>
+
+        </div>
+
+        <div class="question">
+
+            <p>
+                ¿Qué cambia entre Pinterest e Instagram
+                cuando buscamos, vemos y guardamos contenido?
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PINTEREST -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">02</div>
+
+        <div>
+            <div class="eyebrow">Pinterest</div>
+
+            <h2>
+                Buscar ideas y guardarlas
+            </h2>
+        </div>
+
+    </div>
+
+    <div class="text-grid">
+
+        <div class="text-column">
+
+            <h3>¿Cómo se usa?</h3>
+
+            <p>
+                Pinterest funciona principalmente como un lugar para
+                buscar ideas. Podemos escribir algo en el buscador y
+                aparecen muchas imágenes relacionadas.
+            </p>
+
+            <p>
+                Si encontramos algo que nos gusta, podemos guardarlo
+                en un tablero. Por eso es fácil volver después a una
+                idea que vimos anteriormente.
+            </p>
+
+        </div>
+
+        <div class="text-column">
+
+            <h3>¿Qué se siente diferente?</h3>
+
+            <p>
+                La plataforma invita a seguir buscando. No es necesario
+                conocer a la persona que publicó una imagen para que
+                esta nos interese.
+            </p>
+
+            <p>
+                Por eso se siente más como una herramienta para
+                encontrar referencias que como una red social para
+                conversar con otras personas.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAPA PINTEREST -->
+
+    <div class="journey">
+
+        <div class="journey-platform">
+
+            <h3>Recorrido de uso</h3>
+
+            <div class="steps">
+
+                <div class="step">Buscar</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Descubrir</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Explorar</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Guardar</div>
+
+            </div>
+
+        </div>
+
+        <div class="journey-divider"></div>
+
+        <div>
+
+            <p>
+                El recorrido es bastante directo. Primero aparece una
+                búsqueda, después se revisan diferentes resultados y
+                finalmente se puede guardar lo que interesa.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INSTAGRAM -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">03</div>
+
+        <div>
+            <div class="eyebrow">Instagram</div>
+
+            <h2>
+                Seguir contenido e interactuar
+            </h2>
+        </div>
+
+    </div>
+
+    <div class="text-grid">
+
+        <div class="text-column">
+
+            <h3>¿Cómo se usa?</h3>
+
+            <p>
+                Instagram está más centrado en las personas y en las
+                cuentas que seguimos. Al entrar podemos ver historias,
+                publicaciones, reels y otros contenidos.
+            </p>
+
+            <p>
+                También podemos dar me gusta, comentar, compartir o
+                enviar una publicación a otra persona.
+            </p>
+
+        </div>
+
+        <div class="text-column">
+
+            <h3>¿Qué se siente diferente?</h3>
+
+            <p>
+                En Instagram es más importante la relación con otras
+                personas o cuentas. El contenido aparece mientras
+                recorremos nuestro feed.
+            </p>
+
+            <p>
+                Por eso la experiencia se siente más social y más
+                relacionada con lo que está pasando en el momento.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAPA INSTAGRAM -->
+
+    <div class="journey">
+
+        <div class="journey-platform">
+
+            <h3>Recorrido de uso</h3>
+
+            <div class="steps">
+
+                <div class="step">Seguir</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Ver</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Interactuar</div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">Compartir</div>
+
+            </div>
+
+        </div>
+
+        <div class="journey-divider"></div>
+
+        <div>
+
+            <p>
+                Aquí el recorrido comienza más por las cuentas que
+                seguimos. Después vemos el contenido y podemos
+                reaccionar o compartirlo con otras personas.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NAVIGATION -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">04</div>
+
+        <div>
+            <div class="eyebrow">Navegación</div>
+
+            <h2>
+                La diferencia está en lo que hacemos
+            </h2>
+        </div>
+
+    </div>
+
+    <div class="nav-map">
+
+        <div class="nav-column">
+
+            <h3>Pinterest</h3>
+
+            <div class="nav-list">
+
+                <div class="nav-item">
+                    <span>Inicio</span>
+                    <span>Descubrir</span>
+                </div>
+
+                <div class="nav-item">
+                    <span>Buscador</span>
+                    <span>Buscar</span>
+                </div>
+
+                <div class="nav-item">
+                    <span>Tableros</span>
+                    <span>Guardar</span>
+                </div>
+
+                <div class="nav-item">
+                    <span>Pin</span>
+                    <span>Explorar</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-column">
+
+            <h3>Instagram</h3>
+
+            <div class="nav-list">
+
+                <div class="nav-item">
+                    <span>Inicio</span>
+                    <span>Ver</span>
+                </div>
+
+                <div class="nav-item">
+                    <span>Explorar</span>
+                    <span>Descubrir</span>
+                </div>
+
+                <div class="nav-item">
+                    <span>Perfil</span>
+                    <span>Seguir</span>
+                </div>
+
+                <div class="nav-item">
+                    <span>Mensajes</span>
+                    <span>Compartir</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DEVICES -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">05</div>
+
+        <div>
+            <div class="eyebrow">Dispositivos</div>
+
+            <h2>
+                La plataforma cambia según la pantalla
+            </h2>
+        </div>
+
+    </div>
+
+    <div class="text-grid">
+
+        <div class="text-column">
+
+            <p>
+                Las dos plataformas mantienen sus funciones principales
+                en los distintos dispositivos, pero la forma de
+                recorrerlas cambia por el tamaño de la pantalla.
+            </p>
+
+        </div>
+
+        <div class="text-column">
+
+            <p>
+                En computador hay más espacio para ver contenido.
+                En tablet la experiencia es más intermedia y en
+                celular todo está más concentrado y pensado para
+                desplazarse rápidamente.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="device-grid">
+
+        <div class="device">
+
+            <div class="device-number">01</div>
+
+            <h3>Computador</h3>
+
+            <p>
+                Hay más espacio para ver varias imágenes o elementos
+                al mismo tiempo. La navegación también se siente
+                más amplia.
+            </p>
+
+        </div>
+
+
+        <div class="device">
+
+            <div class="device-number">02</div>
+
+            <h3>Tablet</h3>
+
+            <p>
+                El contenido sigue teniendo bastante espacio, pero la
+                interacción se siente más cercana a la del celular
+                porque se usa directamente con la pantalla.
+            </p>
+
+        </div>
+
+
+        <div class="device">
+
+            <div class="device-number">03</div>
+
+            <h3>Celular</h3>
+
+            <p>
+                Todo está más concentrado. El scroll tiene más
+                importancia y las acciones principales están pensadas
+                para hacerse rápidamente.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COMPARISON -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">06</div>
+
+        <div>
+            <div class="eyebrow">Comparación</div>
+
+            <h2>
+                Pinterest e Instagram lado a lado
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="comparison">
+
+        <div class="comparison-row">
+
+            <div>Aspecto</div>
+
+            <div>Pinterest</div>
+
+            <div>Instagram</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>Objetivo principal</div>
+
+            <div>Buscar ideas</div>
+
+            <div>Ver y compartir contenido</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>Forma de descubrir</div>
+
+            <div>Por búsquedas y recomendaciones</div>
+
+            <div>Por feed, cuentas y explorar</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>Guardar</div>
+
+            <div>Es una función importante</div>
+
+            <div>Existe, pero tiene menos protagonismo</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>Interacción</div>
+
+            <div>Más relacionada con el contenido</div>
+
+            <div>Más relacionada con las personas</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>Experiencia</div>
+
+            <div>Más tranquila y enfocada en buscar</div>
+
+            <div>Más rápida y social</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- GRAPH -->
+
+    <div class="graphic">
+
+        <div class="graphic-intro">
+
+            <div class="eyebrow">Gráfico comparativo</div>
+
+            <p>
+                Este gráfico es una comparación visual y no representa
+                porcentajes reales. Sirve para mostrar en qué aspecto
+                destaca más cada plataforma.
+            </p>
+
+        </div>
+
+
+        <div class="graphic-row">
+
+            <div class="graphic-label">
+                Buscar ideas
+            </div>
+
+            <div class="bar-area">
+
+                <div class="bar-name">Pinterest</div>
+
+                <div class="bar">
+                    <div class="bar-fill pinterest"></div>
+                </div>
+
+            </div>
+
+            <div class="bar-area">
+
+                <div class="bar-name">Instagram</div>
+
+                <div class="bar">
+                    <div class="bar-fill instagram"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="graphic-row">
+
+            <div class="graphic-label">
+                Guardar contenido
+            </div>
+
+            <div class="bar-area">
+
+                <div class="bar-name">Pinterest</div>
+
+                <div class="bar">
+                    <div class="bar-fill pinterest"></div>
+                </div>
+
+            </div>
+
+            <div class="bar-area">
+
+                <div class="bar-name">Instagram</div>
+
+                <div class="bar">
+                    <div class="bar-fill instagram"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="graphic-row">
+
+            <div class="graphic-label">
+                Interacción social
+            </div>
+
+            <div class="bar-area">
+
+                <div class="bar-name">Pinterest</div>
+
+                <div class="bar">
+                    <div class="bar-fill pinterest-low"></div>
+                </div>
+
+            </div>
+
+            <div class="bar-area">
+
+                <div class="bar-name">Instagram</div>
+
+                <div class="bar">
+                    <div class="bar-fill instagram-high"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="graphic-row">
+
+            <div class="graphic-label">
+                Descubrir contenido
+            </div>
+
+            <div class="bar-area">
+
+                <div class="bar-name">Pinterest</div>
+
+                <div class="bar">
+                    <div class="bar-fill pinterest"></div>
+                </div>
+
+            </div>
+
+            <div class="bar-area">
+
+                <div class="bar-name">Instagram</div>
+
+                <div class="bar">
+                    <div class="bar-fill instagram"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STRENGTHS -->
+
+    <div class="strength-grid">
+
+        <div class="strength">
+
+            <h3>Pinterest funciona mejor para...</h3>
+
+            <ul>
+
+                <li>Buscar referencias</li>
+
+                <li>Encontrar ideas</li>
+
+                <li>Organizar contenido</li>
+
+                <li>Guardar cosas para después</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="strength">
+
+            <h3>Instagram funciona mejor para...</h3>
+
+            <ul>
+
+                <li>Seguir personas y cuentas</li>
+
+                <li>Ver contenido nuevo</li>
+
+                <li>Interactuar</li>
+
+                <li>Compartir publicaciones</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONCLUSION -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-number">07</div>
+
+        <div>
+            <div class="eyebrow">Conclusión</div>
+
+            <h2>
+                ¿Cuál es la diferencia principal?
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="conclusion-grid">
+
+        <div class="conclusion-main">
+
+            <h2>
+                Las dos muestran contenido visual,
+                pero no lo usamos de la misma manera.
+            </h2>
+
+            <p>
+                Pinterest se siente más como una herramienta para
+                buscar y juntar ideas. Lo importante es encontrar algo
+                que nos sirva y poder guardarlo.
+            </p>
+
+            <p>
+                Instagram se siente más como una red social. Lo
+                importante es seguir cuentas, ver qué están publicando
+                y reaccionar o compartir ese contenido.
+            </p>
+
+            <p>
+                Por eso, aunque las dos plataformas trabajan mucho con
+                imágenes, la experiencia que propone cada una es
+                diferente.
+            </p>
+
+        </div>
+
+
+        <div class="conclusion-side">
+
+            <p>
+                Pinterest: “quiero encontrar algo que me inspire”.
+            </p>
+
+            <p>
+                Instagram: “quiero ver qué están haciendo los demás”.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL SYNTHESIS -->
+
+<section class="synthesis-section">
+
+    <div class="synthesis-title">
+
+        <div class="eyebrow">Síntesis final</div>
+
+        <h2>
+            Dos recorridos distintos
+        </h2>
+
+        <p>
+            Estos dos mapas resumen la principal diferencia entre
+            las plataformas.
+        </p>
+
+    </div>
+
+
+    <div class="final-map">
+
+        <div class="final-platform">
+
+            <h3>Pinterest</h3>
+
+            <div class="final-steps">
+
+                <div class="final-step">Buscar</div>
+
+                <div class="final-step">Descubrir</div>
+
+                <div class="final-step">Explorar</div>
+
+                <div class="final-step">Guardar</div>
+
+            </div>
+
+        </div>
+
+
+        <div class="final-vs">
+            vs.
+        </div>
+
+
+        <div class="final-platform">
+
+            <h3>Instagram</h3>
+
+            <div class="final-steps">
+
+                <div class="final-step">Seguir</div>
+
+                <div class="final-step">Ver</div>
+
+                <div class="final-step">Interactuar</div>
+
+                <div class="final-step">Compartir</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="final-text">
+
+        <p>
+            Pinterest está más pensado para buscar, descubrir y guardar.
+            Instagram está más pensado para seguir, ver e interactuar.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <span>
+        Tarea 4 — Análisis comparativo
+    </span>
+
+    <span>
+        María José Ardiles
+    </span>
+
+</footer>
+
+
+</body>
+</html>
